@@ -1,0 +1,10 @@
+framework module Mercury {
+  umbrella header "Mercury.h"
+
+  export *
+  module * { export * }
+}
+
+module Mercury.Swift {
+    header "Mercury-Swift.h"
+}

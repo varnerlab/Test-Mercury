@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestMercury" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,55 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SG0-tD-azR">
+                                <rect key="frame" x="118" y="260" width="364" height="21"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5VP-Lh-rNX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hz4-OF-fm0">
+                                <rect key="frame" x="192" y="209" width="217" height="30"/>
+                                <state key="normal" title="Send echo message to Mercury"/>
+                                <connections>
+                                    <action selector="transmitButtonWasPushedAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oBm-zH-oOi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYh-eo-DjC">
+                                <rect key="frame" x="118" y="302" width="364" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fJj-cy-cBh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SG0-tD-azR" firstAttribute="top" secondItem="hz4-OF-fm0" secondAttribute="bottom" constant="21" id="5sn-gM-uiw"/>
+                            <constraint firstItem="mYh-eo-DjC" firstAttribute="top" secondItem="SG0-tD-azR" secondAttribute="bottom" constant="21" id="8Xe-ym-8Mj"/>
+                            <constraint firstItem="hz4-OF-fm0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Yu-qn-EKT"/>
+                            <constraint firstItem="SG0-tD-azR" firstAttribute="trailing" secondItem="mYh-eo-DjC" secondAttribute="trailing" id="IbZ-Sl-ykQ"/>
+                            <constraint firstItem="hz4-OF-fm0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="189" id="Kk8-Hx-38h"/>
+                            <constraint firstItem="hz4-OF-fm0" firstAttribute="centerX" secondItem="SG0-tD-azR" secondAttribute="centerX" id="R2k-qW-jgG"/>
+                            <constraint firstItem="SG0-tD-azR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="98" id="cGF-j5-XjY"/>
+                            <constraint firstItem="SG0-tD-azR" firstAttribute="leading" secondItem="mYh-eo-DjC" secondAttribute="leading" id="mMl-Zb-H2r"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="rcvd_message_label" destination="mYh-eo-DjC" id="0kI-9m-HaQ"/>
+                        <outlet property="sent_message_label" destination="SG0-tD-azR" id="id7-is-IHN"/>
+                        <outlet property="transmit_button" destination="hz4-OF-fm0" id="Bw6-dS-Tmb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="413" y="418"/>
         </scene>
     </scenes>
 </document>

@@ -12,7 +12,24 @@
 		AD0437121CB3DDBB00B6C51B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0437101CB3DDBB00B6C51B /* Main.storyboard */; };
 		AD0437141CB3DDBB00B6C51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0437131CB3DDBB00B6C51B /* Assets.xcassets */; };
 		AD0437171CB3DDBB00B6C51B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0437151CB3DDBB00B6C51B /* LaunchScreen.storyboard */; };
+		AD0437231CB3E53700B6C51B /* Mercury.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0437221CB3E53700B6C51B /* Mercury.framework */; };
+		AD0437241CB3E53800B6C51B /* Mercury.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD0437221CB3E53700B6C51B /* Mercury.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AD0437291CB3EF8800B6C51B /* EchoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0437281CB3EF8800B6C51B /* EchoMessage.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD0437251CB3E53800B6C51B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AD0437241CB3E53800B6C51B /* Mercury.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AD0437091CB3DDBB00B6C51B /* TestMercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +39,8 @@
 		AD0437131CB3DDBB00B6C51B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD0437161CB3DDBB00B6C51B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD0437181CB3DDBB00B6C51B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD0437221CB3E53700B6C51B /* Mercury.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mercury.framework; sourceTree = "<group>"; };
+		AD0437281CB3EF8800B6C51B /* EchoMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0437231CB3E53700B6C51B /* Mercury.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +58,7 @@
 		AD0437001CB3DDBB00B6C51B = {
 			isa = PBXGroup;
 			children = (
+				AD0437221CB3E53700B6C51B /* Mercury.framework */,
 				AD04370B1CB3DDBB00B6C51B /* TestMercury */,
 				AD04370A1CB3DDBB00B6C51B /* Products */,
 			);
@@ -60,6 +81,7 @@
 				AD0437131CB3DDBB00B6C51B /* Assets.xcassets */,
 				AD0437151CB3DDBB00B6C51B /* LaunchScreen.storyboard */,
 				AD0437181CB3DDBB00B6C51B /* Info.plist */,
+				AD0437281CB3EF8800B6C51B /* EchoMessage.swift */,
 			);
 			path = TestMercury;
 			sourceTree = "<group>";
@@ -74,6 +96,7 @@
 				AD0437051CB3DDBB00B6C51B /* Sources */,
 				AD0437061CB3DDBB00B6C51B /* Frameworks */,
 				AD0437071CB3DDBB00B6C51B /* Resources */,
+				AD0437251CB3E53800B6C51B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +119,7 @@
 				TargetAttributes = {
 					AD0437081CB3DDBB00B6C51B = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9H8NJ2NLT7;
 					};
 				};
 			};
@@ -136,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD04370F1CB3DDBB00B6C51B /* ViewController.swift in Sources */,
+				AD0437291CB3EF8800B6C51B /* EchoMessage.swift in Sources */,
 				AD04370D1CB3DDBB00B6C51B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,10 +276,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TestMercury/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.varnerlab.TestMercury;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -262,10 +294,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TestMercury/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.varnerlab.TestMercury;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
